@@ -25,3 +25,9 @@ app.get("/guns", (req, res) => {
            guns
         });
     });
+
+    app.get("/guns/all", (req, res) => {
+        res.send({
+           guns
+        });
+    });

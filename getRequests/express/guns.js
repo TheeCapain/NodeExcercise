@@ -25,3 +25,11 @@ app.get("/guns", (req, res) => {
            guns
         });
     });
+
+
+app.get("/guns/all/", (req, res) => {
+    console.log("Det virker")
+        res.send({
+           guns
+        });
+    });
