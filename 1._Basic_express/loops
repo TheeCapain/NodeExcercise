@@ -1,0 +1,21 @@
+const nolanFilms = [
+    {name:"Inception",year: 2010},
+    {name:"Dunkirk",year:2014},
+    {name: "interstellar", year:2016},
+    {name: "the dark knkight", year:2008},
+    {name: "memento", year: 1998}
+];
+
+const ratedfilms = nolanFilms.map(movie =>{
+    movie.rating=10;
+    return movie
+})
+console.log(ratedfilms)
+
+const recentfilms = nolanFilms.filter(recent => recent.year > 2005)
+
+console.log(recentfilms)
+
+//forEeach
+//Map, reduce, filter
+//læs op på reduce
