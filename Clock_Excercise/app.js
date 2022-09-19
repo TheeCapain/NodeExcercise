@@ -12,7 +12,7 @@ app.use(express.static("public"))
 app.get("/", (req,res)=>{
     res.sendFile(path.resolve("public/frontpage.html"))
     console.log(intervalFunc)
-    res.send({ data: [intervalFunc.toString] });
+    res.send({ data: [intervalFunc] });
 })
 
 function intervalFunc() {
