@@ -1,0 +1,1 @@
+{"type": "module","dependencies":{"express":"^4.18.1"},"scripts":{"scriptname":"nodemon app.js","testscript":""}}

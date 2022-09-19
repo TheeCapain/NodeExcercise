@@ -30,6 +30,16 @@ app.get("/actors",(req, res)=>{
     })
 })
 
+console.log(new Date().getMonth())
+
+app.get("/date",(req,res)=>{
+    res.send({date: new Date().getDate})
+})
+
+app.post("/actors", (req, res)=>{
+    res.send(req.body)
+})
+
 //Måde 1
 //How to send data with get
 //Query paramters with query string
