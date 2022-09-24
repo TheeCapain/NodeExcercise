@@ -1,7 +1,25 @@
-body{
-    background-color: blue;
+#clock{
+    background-color: black;
+    color: red;
+    padding: 10px;
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    font-size: 50px;
+    border-radius: 10px;
+    box-shadow: 3px 3px grey;
 }
 
-.h1{
-    color: red;
+#play{
+    padding: 10px;
+    text-align: center;
+    margin: 0 auto;
+    background: lightblue;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+#play input{
+    width: auto;
 }
