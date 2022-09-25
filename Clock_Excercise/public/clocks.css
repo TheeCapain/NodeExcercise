@@ -17,7 +17,7 @@
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #04AA6D;
+    background-color: #191cec;
     color: white;
   }
 
@@ -35,4 +35,30 @@
 
 #play input{
     width: auto;
+}
+
+#time{
+  padding: 10px;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 50px;
+  border-radius: 10px;
+}
+
+#date{
+  margin:20px auto;
+  padding: 5px 0;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  font-size: 22px;
+}
+
+#content{
+  background-color: white;
+  width: 30%;
+  margin: 0 auto;
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 2px;
 }
