@@ -1,5 +1,5 @@
 
-
+let list = document.getElementById("list")
 
 function todo(){
     fetch("/tasks").
@@ -7,14 +7,15 @@ function todo(){
     then(res=>{
 
         let date = res.date
-        let taskName = res.taskName
-        let taskDate = res.taskDate
+        let task = res.tasks
 
-        document.getElementById("task").textContent = taskName[0]
-          
 
-       
-       
+
+        for(let i = 0; i<task.list; i++){
+            console.log(task[i].taskName)
+            let task = document.createElement("li").textContent=task[i].taskName
+            list.appendChild(task)
+        }
     })
 )}
 

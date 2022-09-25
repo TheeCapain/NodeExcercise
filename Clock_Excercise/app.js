@@ -9,7 +9,7 @@ let tasks = [
     {
         taskId:1,
         taskName: "Take out the trash",
-        taskDate:""
+        taskDate: date.getDate()
     },
     {
         taskId:2,
@@ -34,8 +34,7 @@ app.get("/tasks", (req,res)=>{
 
     res.send({
         date: date.getDate(),
-        taskName : tasks.taskName,
-        taskDate : tasks.taskDate,
+        tasks : tasks,
 
     
     })
