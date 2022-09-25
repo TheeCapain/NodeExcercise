@@ -1,5 +1,4 @@
-
-let list = document.getElementById("list")
+let list = document.getElementById("tasks")
 
 function todo(){
     fetch("/tasks").
@@ -10,11 +9,31 @@ function todo(){
         let task = res.tasks
 
 
+        console.log(task.length)
 
-        for(let i = 0; i<task.list; i++){
+        for(let i = 0; i<task.length; i++){
+            let newTask = document.createElement("tr")
+            let taskId = document.createElement("td")
+            let taskName = document.createElement("td")
+            let taskDate = document.createElement("td")
+            let taskStatus = document.createElement("td")
+
+
+        
+            taskId.textContent = task[i].taskId
+            taskName.textContent = task[i].taskName
+            taskDate.textContent = task[i].taskDate
+            taskStatus.textContent= task[i].taskStatus
+
+
             console.log(task[i].taskName)
-            let task = document.createElement("li").textContent=task[i].taskName
-            list.appendChild(task)
+        
+            list.appendChild(newTask)
+            newTask.appendChild(taskId)
+            newTask.appendChild(taskName)
+            newTask.appendChild(taskDate)
+            newTask.appendChild(taskStatus)
+        
         }
     })
 )}

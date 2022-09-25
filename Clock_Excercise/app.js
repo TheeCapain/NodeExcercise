@@ -9,17 +9,20 @@ let tasks = [
     {
         taskId:1,
         taskName: "Take out the trash",
-        taskDate: date.getDate()
+        taskDate: "1-2-2020",
+        taskStatus: "Not done",
     },
     {
         taskId:2,
         taskName: "clean closet",
-        taskDate:""
+        taskDate:"1-2-2020",
+        taskStatus: "Not done",
     },
     {
         taskId:3,
         taskName: "Do a flip",
-        taskDate:""
+        taskDate:"1-2-2020",
+        taskStatus: "Not done"
     }
 ]
 
@@ -39,7 +42,6 @@ app.get("/tasks", (req,res)=>{
     
     })
 })
-
 
 
 /*
