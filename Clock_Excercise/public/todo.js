@@ -31,10 +31,6 @@ function todo(){
     })
 )}
 
-
-
-
-
 function taskTable(task){
     for(let i = 0; i<task.length; i++){
         let newTask = document.createElement("tr")
