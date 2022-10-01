@@ -6,15 +6,13 @@
 }
 
 #page-banner{
-    width: 100%;
-    background: url("http://www.houston-pc.com/wp-content/uploads/2016/05/Custom-Coding-Houston-TX-Houston-PC-Services.png") 1000px ;
+    width: auto;
+    background-image:url("http://www.houston-pc.com/wp-content/uploads/2016/05/Custom-Coding-Houston-TX-Houston-PC-Services.png");
 }
 
 #content{
-    padding: 2%;
-    width: 75%;
+    width: 79.1%;
     margin: 0 auto;
-    background-color: red;
 }
 
 #content h1{

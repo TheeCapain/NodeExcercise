@@ -1,4 +1,4 @@
-function todo(){
+function header(){
     fetch("/header").
     then(resolve =>resolve.json().
     then(res=>{
@@ -36,4 +36,4 @@ function appendMenu(menu, homeBtn){
 }
 
 
-todo()
+header()

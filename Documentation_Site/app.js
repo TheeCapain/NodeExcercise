@@ -39,7 +39,22 @@ let menu = [
     {
         title: 'CRUD',
         href:''
+    },
+    {
+        title: 'LOGIN',
+        href:''
     }
+]
+
+let mainContent = [
+    {
+        title:'CRUD conventions',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eleifend pulvinar consectetur. Nam eros quam, ornare sed arcu non, dictum dictum purus. Nunc viverra, nisl ut finibus tempor, elit sem pharetra velit, molestie tristique turpis sapien et neque.'
+    }, 
+    {
+        title:'Call back functions',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam eleifend pulvinar consectetur. Nam eros quam, ornare sed arcu non, dictum dictum purus. Nunc viverra, nisl ut finibus tempor, elit sem pharetra velit, molestie tristique turpis sapien et neque.'
+    }, 
 ]
 
 app.get("/", (req,res)=>{
@@ -53,6 +68,13 @@ app.get("/header", (req, res )=>{
         homeBtn:homeBtn
     })
 
+})
+
+app.get("/content",(req,res)=>{
+    res.send({
+        articleTitle: mainContent.title,
+        articleContent: mainContent.content
+    })
 })
 
 

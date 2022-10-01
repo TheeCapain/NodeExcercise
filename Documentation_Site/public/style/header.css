@@ -3,16 +3,16 @@
     padding: 0;
     list-style-type:none;
 }
-  header {
+header {
       height:40px;
       width:100%;
       background:rgba(0,0,0,0.9);
       z-index:120;
     }
-  header li {
-      float: left;
-      list-style-type:none;
-      border-right: 1px solid #252525;
+header li {
+  float: right;
+  list-style-type:none;
+  border-right: 1px solid #252525;
 }
   header li a {
       float: left;
