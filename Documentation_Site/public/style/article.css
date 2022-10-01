@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type:none;
+    box-sizing: border-box;
+}
+
+#page-banner{
+    width: 100%;
+    background: url("http://www.houston-pc.com/wp-content/uploads/2016/05/Custom-Coding-Houston-TX-Houston-PC-Services.png") 1000px ;
+}
+
+#content{
+    padding: 2%;
+    width: 75%;
+    margin: 0 auto;
+    background-color: red;
+}
+
+#content h1{
+    margin-top: auto;
+}
+
+  .row {
+    display: flex;
+}
+  
+  /* Create two equal columns that sits next to each other */
+  .column {
+    flex: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+  }
+
+

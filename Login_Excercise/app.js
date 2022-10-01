@@ -5,7 +5,17 @@ const app = express();
 app.use(express.static("public"));
 
 
+let users = [
+    {
+        id: 1,
+        username: 'A',
+        password: 'S'
+    }
+]
 
+app.get("/", (req,res)=>{
+    res.sendFile(path.resolve("public/frontpage.html"))
+})
 
 
 
