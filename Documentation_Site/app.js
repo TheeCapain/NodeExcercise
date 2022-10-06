@@ -4,7 +4,18 @@ import { title } from "process";
 
 const app = express();
 
+import { renderPage } from "./util/templateEngine.js";
+
+const frontpagePage = renderPage("public/frontpage/frontpage.html", 
+{ 
+    cssLink: `<link rel="stylesheet" href="./public/frontpage/frontpage.css">` 
+});
+
 app.use(express.static("public"));
+
+app.get("/", (req, res) => {
+    res.send(frontpagePage);
+});
 
 
 let users = [
@@ -58,7 +69,7 @@ let mainContent = [
 ]
 
 app.get("/", (req,res)=>{
-    res.sendFile(path.resolve("public/pages/frontpage.html"))
+    res.sendFile(path.resolve("/public/pages/frontpage.html"))
 })
 
 
