@@ -1,6 +1,6 @@
 import fs from "fs";
 
-const navComponent = fs.readFileSync("./public/components/navbar/header.html").toString();
+const navComponent = fs.readFileSync("./public/components/navbar/nav.html").toString();
 
 export function renderPage(path, options = {}) {
     const page = fs.readFileSync(path).toString();

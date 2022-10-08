@@ -6,8 +6,9 @@ const app = express();
 
 import { renderPage } from "./util/templateEngine.js";
 
-const frontpagePage = renderPage("public/frontpage/frontpage.html", 
+const frontpagePage = renderPage("./public/pages/frontpage/frontpage.html", 
 { 
+    tabTitle: "Welcome",
     cssLink: `<link rel="stylesheet" href="./public/frontpage/frontpage.css">` 
 });
 
@@ -23,39 +24,9 @@ let users = [
         id: 1,
         username: 'A',
         password: 'S'
-    }
-]
+    }]
 
-let homeBtn=[
-{
-    title:'Portfolio',
-    href:''
-}
-]
 
-let menu = [
-    {
-        title:'Home',
-        href:''
-    }, 
-    {
-        title: 'Rest API',
-        href:''
-    }, 
-    {
-        title: 'Callback functions',
-        href:''
-
-    },
-    {
-        title: 'CRUD',
-        href:''
-    },
-    {
-        title: 'LOGIN',
-        href:''
-    }
-]
 
 let mainContent = [
     {
@@ -69,7 +40,7 @@ let mainContent = [
 ]
 
 app.get("/", (req,res)=>{
-    res.sendFile(path.resolve("/public/pages/frontpage.html"))
+    res.sendFile(path.resolve("/public/components/frontpage.html"))
 })
 
 
@@ -91,8 +62,11 @@ app.get("/content",(req,res)=>{
 
 
 
+const PORT = process.env.PORT || 8080;
 
-
-app.listen(8080,()=>{
-    console.log("Server is running on ", 8080)
-} )
+const server = app.listen(PORT, (error) => {
+    if (error) {
+        console.log(error);
+    }
+    console.log("Server is running on port", server.address().port);
+});
