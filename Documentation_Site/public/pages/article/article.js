@@ -13,3 +13,7 @@ const pokemonName = pathVariables.pop();
 console.log(pokemonName);
 
 getArticle()
+
+app.get("/article/:headline", (req, res) => {
+    res.send(battlePage.replace("%%TAB_TITLE%%", `Battle ${req.params.pokemonName}`));
+});

@@ -3,7 +3,7 @@ import path from "path"
 
 const app = express();
 
-import { renderPage } from "./util/templateEngine.js";
+import { renderPage, articlePage } from "./util/templateEngine.js";
 
 const frontpagePage = renderPage("./public/pages/frontpage/frontpage.html", 
 { 
@@ -46,10 +46,9 @@ app.get("/article",(req,res)=>{
     })
 })
 
-app.get("/articles/:id",(req,res)=>{
-    res.send(guns[req.params.id-1])
+app.get("/articles/:headline",(req,res)=>{
+    res.send(articlePage.replace("%%TAB_TITLE%%", `Article ${req.params.headline}`));
 })
-
 
 const PORT = process.env.PORT || 8080;
 
