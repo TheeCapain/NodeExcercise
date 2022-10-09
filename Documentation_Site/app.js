@@ -1,5 +1,4 @@
 import express from "express"
-import path from "path"
 
 const app = express();
 
@@ -34,20 +33,15 @@ app.get("/", (req, res) => {
     res.send(frontpagePage);
 });
 
-
-app.get("/", (req,res)=>{
-    res.sendFile(path.resolve("/public/components/frontpage.html"))
- 
-})
-
-app.get("/article",(req,res)=>{
-    res.send({
-        articles: articles
-    })
+app.get("/articles",(req,res)=>{
+   res.redirect(`articles/${articles[0]}`)
 })
 
 app.get("/articles/:headline",(req,res)=>{
     res.send(articlePage.replace("%%TAB_TITLE%%", `Article ${req.params.headline}`));
+    res.send({
+        article: articles[`${req.params.headline}`]
+    })
 })
 
 const PORT = process.env.PORT || 8080;

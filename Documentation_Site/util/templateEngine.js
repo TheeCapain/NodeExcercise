@@ -18,4 +18,4 @@ export function renderPage(path, options = {}) {
 const article = fs.readFileSync("./public/pages/article/article.html").toString();
 export const articlePage = navComponent.replace("%%PAGE_CSS_LINK%%",
 `<link rel="stylesheet" href="/pages/article//article.css">`
-)
+) + article + footerComponent;

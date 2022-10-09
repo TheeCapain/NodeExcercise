@@ -7,13 +7,14 @@ then(resolve=>resolve.json())
 })
 }
 
-const pathVariables = location.pathname.split("/");
-const pokemonName = pathVariables.pop();
-
-console.log(pokemonName);
 
 getArticle()
 
 app.get("/article/:headline", (req, res) => {
-    res.send(battlePage.replace("%%TAB_TITLE%%", `Battle ${req.params.pokemonName}`));
+    res.send(battlePage.replace("%%TAB_TITLE%%", `Article ${req.params.headline}`));
+    const pathVariables = location.pathname.split("/");
+    const articleTitle = pathVariables.pop();
+
+console.log(articleTitle);
 });
+
