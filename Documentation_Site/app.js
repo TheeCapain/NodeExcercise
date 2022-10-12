@@ -1,8 +1,13 @@
 import express from "express"
 
 const app = express();
+app.use(express.static("public"));
 
-import { renderPage, articlePage } from "./util/templateEngine.js";
+
+import articleRouter from "./public/routers/articleRouter.js";
+app.use(articleRouter);
+
+import { renderPage, injectData } from "./util/templateEngine.js";
 
 const frontpagePage = renderPage("./public/pages/frontpage/frontpage.html", 
 { 
@@ -10,39 +15,26 @@ const frontpagePage = renderPage("./public/pages/frontpage/frontpage.html",
     cssLink: `<link rel="stylesheet" href="./public/components/navbar/header.css">` 
 });
 
-let articles = [{
-    id:1,
-    headline:"Crud",
-    content: "Some text here",
-    images:''
-},{
-    id:2,
-    headline:"CallBack functions",
-    content: "Some text here",
-    images:''
-},{
-    id:3,
-    headline:"JSON packages",
-    content: "Some text here",
-    images:''
-}]
+const articlePage = renderPage("./public/pages/article/article.html", {
+    cssLink: `<link rel="stylesheet" href="/pages/article/article.css">` 
+});
 
-app.use(express.static("public"));
 
 app.get("/", (req, res) => {
     res.send(frontpagePage);
 });
 
-app.get("/articles",(req,res)=>{
-   res.redirect(`articles/${articles[0]}`)
-})
 
 app.get("/articles/:headline",(req,res)=>{
-    res.send(articlePage.replace("%%TAB_TITLE%%", `Article ${req.params.headline}`));
-    res.send({
-        article: articles[`${req.params.headline}`]
-    })
+    const article = req.params.headline
+    const articleWithData = injectData(articlePage, {article})
+    res.send(articleWithData.replace("%%TAB_TITLE%%", `Article ${req.params.headline}`))
 })
+
+
+
+
+
 
 const PORT = process.env.PORT || 8080;
 

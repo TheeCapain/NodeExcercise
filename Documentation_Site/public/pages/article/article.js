@@ -3,7 +3,7 @@ fetch("/article").
 then(resolve=>resolve.json())
 .then(res=>{
     let articles = res.articles
-    console.log(articles[0].headline)
+    console.log(articles.headline)
 })
 }
 
