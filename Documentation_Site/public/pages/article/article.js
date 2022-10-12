@@ -1,3 +1,5 @@
+import { response } from "express";
+
 function getArticle(){
 fetch("/article").
 then(resolve=>resolve.json())
@@ -7,14 +9,20 @@ then(resolve=>resolve.json())
 })
 }
 
+fetch(`http://localhost:8080/articles/${articleTitle}`)
+.then(response =>response.json())
+.then(article =>{
+    console.log(article)
 
-getArticle()
 
-app.get("/article/:headline", (req, res) => {
-    res.send(battlePage.replace("%%TAB_TITLE%%", `Article ${req.params.headline}`));
-    const pathVariables = location.pathname.split("/");
-    const articleTitle = pathVariables.pop();
+    
+})
 
-console.log(articleTitle);
+/*
+app.get(`/article/${articleTitle}`, (req, res) => {
+    const article = req.params.headline
+    const articleWithData = injectData(articlePage, {article})
+    console.log(article)
+    res.send(articleWithData.replace("%%TAB_TITLE%%", `Article ${req.params.article}`))
 });
-
+*/

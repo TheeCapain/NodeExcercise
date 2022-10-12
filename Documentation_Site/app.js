@@ -25,17 +25,6 @@ app.get("/", (req, res) => {
 });
 
 
-app.get("/articles/:headline",(req,res)=>{
-    const article = req.params.headline
-    const articleWithData = injectData(articlePage, {article})
-    res.send(articleWithData.replace("%%TAB_TITLE%%", `Article ${req.params.headline}`))
-})
-
-
-
-
-
-
 const PORT = process.env.PORT || 8080;
 
 const server = app.listen(PORT, (error) => {

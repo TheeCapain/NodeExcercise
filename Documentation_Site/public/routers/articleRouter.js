@@ -19,8 +19,15 @@ let articles = [{
     images:''
 }]
 
-router.get("/articles",(req,res)=>{
-   res.send({articles: articles})
+router.get("/articles", (req,res)=>{
+    console.log(articles[0].content)
+    res.redirect(`articles/${articles[0]}`);
+})
+
+router.get(`/articles/:headline`,(req,res)=>{
+    const foundArticle = articles.find(articles => articles.headline === req.params.headline)
+    console.log(foundArticle)
+   res.send({data: foundArticle})
  })
 
  export default router
