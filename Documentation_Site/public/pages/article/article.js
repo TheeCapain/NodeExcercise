@@ -7,7 +7,6 @@ then(resolve=>resolve.json())
 })
 }
 
-
 getArticle()
 
 app.get("/article/:headline", (req, res) => {

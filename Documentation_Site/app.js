@@ -5,6 +5,8 @@ const app = express();
 import { renderPage, articlePage } from "./util/templateEngine.js";
 
 const frontpagePage = renderPage("./public/pages/frontpage/frontpage.html", 
+
+
 { 
     tabTitle: "Welcome",
     cssLink: `<link rel="stylesheet" href="./public/components/navbar/header.css">` 
