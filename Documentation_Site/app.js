@@ -11,6 +11,8 @@ app.use(articleRouter);
 
 
 const frontpagePage = renderPage("./public/pages/frontpage/frontpage.html", 
+
+
 { 
     tabTitle: "Welcome",
     cssLink: `<link rel="stylesheet" href="./public/components/navbar/header.css">` 

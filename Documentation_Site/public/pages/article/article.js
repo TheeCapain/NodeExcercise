@@ -34,10 +34,4 @@ async function getArticles(articleid) {
         articleBox.appendChild(text)
     });
 }
-
-
-function fillContent(content){
-
-    
-}
 getArticles(1)
