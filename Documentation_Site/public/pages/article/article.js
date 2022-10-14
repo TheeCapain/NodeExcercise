@@ -1,20 +1,14 @@
-function getArticle() {
-    fetch("/article").
-        then(resolve => resolve.json())
-        .then(res => {
-            let articles = res.articles
-            console.log(articles.headline)
-        })
-}
-
-//addeventlistener
+//addeventlistener kan bruges til at få id til function
 const articleBox = document.getElementById("article-box")
 
-async function getArticles(articleid) {
+async function getArticles() {
     const response = await fetch(
-        `/articles/${articleid}`
+        `/article/${nr}`
     );
     const articles = await response.json();
+
+    console.log(articles)
+
     console.log(articles.data.articleTitle)
 
     const title = document.createElement("h1")
@@ -34,4 +28,5 @@ async function getArticles(articleid) {
         articleBox.appendChild(text)
     });
 }
-getArticles(1)
+
+let nr = window.location.pathname.split('article/');

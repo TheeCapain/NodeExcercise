@@ -27,7 +27,12 @@ app.get("/", (req, res) => {
     res.send(frontpagePage);
 });
 
-app.get("/article",(req,res) =>{
+app.get("/article/",(req,res) =>{
+    console.log("no tingen")
+    res.send(articlePage)
+})
+
+app.get("/article/:id", (req, res) =>{
     res.send(articlePage)
 })
 
