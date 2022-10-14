@@ -1,28 +1,43 @@
-import { response } from "express";
-
-function getArticle(){
-fetch("/article").
-then(resolve=>resolve.json())
-.then(res=>{
-    let articles = res.articles
-    console.log(articles.headline)
-})
+function getArticle() {
+    fetch("/article").
+        then(resolve => resolve.json())
+        .then(res => {
+            let articles = res.articles
+            console.log(articles.headline)
+        })
 }
 
-fetch(`http://localhost:8080/articles/${articleTitle}`)
-.then(response =>response.json())
-.then(article =>{
-    console.log(article)
+//addeventlistener
+const articleBox = document.getElementById("article-box")
 
+async function getArticles(articleid) {
+    const response = await fetch(
+        `/articles/${articleid}`
+    );
+    const articles = await response.json();
+    console.log(articles.data.articleTitle)
+
+    const title = document.createElement("h1")
+    title.id = articles.data.articleId
+    articleBox.appendChild(title)
+    title.textContent = articles.data.articleTitle
+
+    articles.data.subArticles.forEach((article) => {
+
+        const subtitle = document.createElement("h2")
+        subtitle.id = article.subArticlesid
+        subtitle.textContent = article.subTitle
+
+        const text = document.createElement("p")
+        text.textContent = article.text
+        articleBox.appendChild(subtitle)
+        articleBox.appendChild(text)
+    });
+}
+
+
+function fillContent(content){
 
     
-})
-
-/*
-app.get(`/article/${articleTitle}`, (req, res) => {
-    const article = req.params.headline
-    const articleWithData = injectData(articlePage, {article})
-    console.log(article)
-    res.send(articleWithData.replace("%%TAB_TITLE%%", `Article ${req.params.article}`))
-});
-*/
+}
+getArticles(1)

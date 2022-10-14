@@ -5,9 +5,10 @@ app.use(express.static("public"));
 
 
 import articleRouter from "./public/routers/articleRouter.js";
+import { renderPage, injectData } from "./util/templateEngine.js";
 app.use(articleRouter);
 
-import { renderPage, injectData } from "./util/templateEngine.js";
+
 
 const frontpagePage = renderPage("./public/pages/frontpage/frontpage.html", 
 { 
@@ -24,6 +25,9 @@ app.get("/", (req, res) => {
     res.send(frontpagePage);
 });
 
+app.get("/article",(req,res) =>{
+    res.send(articlePage)
+})
 
 const PORT = process.env.PORT || 8080;
 

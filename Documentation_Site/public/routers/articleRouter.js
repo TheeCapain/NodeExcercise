@@ -1,36 +1,66 @@
-import {Router} from "express"
+import { Router } from "express"
 
-const router= Router();
+const articleRouter = Router();
 
-let articles = [{
-    id:1,
-    headline:"Crud",
-    content: "Some text here",
-    images:''
-},{
-    id:2,
-    headline:"CallBack functions",
-    content: "Some text here",
-    images:''
-},{
-    id:3,
-    headline:"JSON packages",
-    content: "Some text here",
-    images:''
-}]
-
-router.get("/articles", (req,res)=>{
-    console.log(articles[0].content)
-    res.redirect(`articles/${articles[0]}`);
+articleRouter.get("/articles", (req, res) => {
+    res.status(200).send({ data: articles })
 })
 
-router.get(`/articles/:headline`,(req,res)=>{
-    const foundArticle = articles.find(articles => articles.headline === req.params.headline)
-    console.log(foundArticle)
-   res.send({data: foundArticle})
- })
+articleRouter.get("/articles/:id", (req, res) => {
+    const article = articles.find(
+        (article) => article.articleId === Number(req.params.id)
+    );
+    res.send({ data: article });
+});
 
- export default router
- 
 
- 
+const articles = [
+    {
+        articleId: 1,
+        articleTitle: "Uge 35",
+        articleSummary: 'Article Summary 1 here',
+        subArticles: [
+            {
+                subArticlesId: 1,
+                subTitle: `SubTitle 1`,
+                text: `Placeholder text 1`,
+            },
+            {
+                subArticlesId: 2,
+                subTitle: `SubTitle 2`,
+                text: `Placeholder text 2`,
+            },
+            {
+                subArticlesId: 3,
+                subTitle: `SubTitle 3`,
+                text: `Placeholder text 3`,
+            },
+        ],
+    }, 
+    {
+        articleId: 2,
+        articleTitle: "Uge 36",
+        articleSummary: 'Article Summary 2 here',
+        subArticles: [
+            {
+                subArticlesId: 1,
+                subTitle: `SubTitle 1`,
+                text: `Placeholder text 1`,
+            },
+            {
+                subArticlesId: 2,
+                subTitle: `SubTitle 2`,
+                text: `Placeholder text 2`,
+            },
+            {
+                subArticlesId: 3,
+                subTitle: `SubTitle 3`,
+                text: `Placeholder text 3`,
+            },
+        ],
+    },
+]
+
+export default articleRouter
+
+
