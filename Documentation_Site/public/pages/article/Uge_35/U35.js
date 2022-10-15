@@ -3,7 +3,7 @@ const articleBox = document.getElementById("article-box")
 
 async function getArticles() {
     const response = await fetch(
-        `/article/${nr}`
+        `/articles/1`
     );
     const articles = await response.json();
 
@@ -13,7 +13,12 @@ async function getArticles() {
 
     const title = document.createElement("h1")
     title.id = articles.data.articleId
+    
+    const summary = document.createElement("p")
+    summary.textContent = articles.data.articleSummary
+
     articleBox.appendChild(title)
+    articleBox.appendChild(summary)
     title.textContent = articles.data.articleTitle
 
     articles.data.subArticles.forEach((article) => {
@@ -29,4 +34,4 @@ async function getArticles() {
     });
 }
 
-let nr = window.location.pathname.split('article/');
+getArticles()
