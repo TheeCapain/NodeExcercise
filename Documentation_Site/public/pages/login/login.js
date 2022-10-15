@@ -11,7 +11,7 @@ async function getLoginInfo() {
     },
     body: JSON.stringify(Object.fromEntries(formData)),
   });
-  const user = await response.json()
+
     if((response.ok)){
         console.log("User set")
         const user = await response.json()

@@ -1,6 +1,6 @@
 import {Router} from "express"
 
-export const userRouter = Router();
+const userRouter = Router();
 
 userRouter.get("/login/:id", (req, res) => {
     const user = users.find((user) => user.userId === Number(req.params.id));
@@ -12,8 +12,8 @@ userRouter.post("/login",(req,res) =>{
     console.log("Vi er herinde")
     const user = user.find(
         user => 
-        user.userEmail === req.body.name &&
-        user.userPassword === req.body.password
+        user.userName === req.body.name &&
+        user.userPW === req.body.password
     );
     if(user){
     res.send({data:user.userId})
@@ -27,3 +27,5 @@ const users = [{
     userName: "Test",
     userPW: "123"
 }]
+
+export default userRouter

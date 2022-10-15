@@ -53,7 +53,7 @@ app.get("/", (req, res) => {
     res.send(frontpagePage);
 });
 
-app.get("/login/", (req,res) =>{
+app.get("/login", (req,res) =>{
     res.send(LoginPage)
 })
 
