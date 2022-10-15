@@ -6,10 +6,11 @@
   }
 
   .article{
-    width: 79%;
+    width: 65%;
     columns: 100px 1;
     margin: 0 auto;
     padding: 10px;
   }
+
 
   

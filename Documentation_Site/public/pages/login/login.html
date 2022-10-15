@@ -1,13 +1,15 @@
-<form method="post">
+<form id="form-info">
     <div id="loginbox"></div>
     <div class="container">
-        <label for="userName"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
+        <label for="name"><b>Username</b></label>
+        <input name="name" type="name" />
 
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
+        <input name="password" type="password"/>
 
-        <button type="submit">Login</button>
+        <button id="login" type="button">Login</button>
     </div>
     </div>
 </form>
+
+<script src="./pages/login/login.js"></script>
