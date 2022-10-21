@@ -1,6 +1,7 @@
 //addeventlistener kan bruges til at få id til function
 const articleBox = document.getElementById("article-box")
 
+
 async function getArticles() {
     const response = await fetch(
         `/articles/1`

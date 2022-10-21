@@ -1,14 +1,13 @@
-<form id="form-info">
-    <div class="container">
-        <label for="name"><b>Username</b></label>
-        <input name="name" type="name" />
+<div class="container">
+    <h1 id="title">Login Page</h1>
+    <form id="form-info" action="/login" method="post">
+        <label for="">Name</label>
+        <input type="text" id="name" name="name">
+        <label for="">Password</label>
+        <input type="text" id="password" name="password">
+        <input id="login" type="submit" value="Submit">
+    </form>
+</div>
 
-        <label for="psw"><b>Password</b></label>
-        <input name="password" type="password"/>
-
-        <button id="login" type="button">Login</button>
-    </div>
-    </div>
-</form>
 
 <script src="./pages/login/login.js"></script>

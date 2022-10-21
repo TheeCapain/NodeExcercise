@@ -1,9 +1,11 @@
 const loginButton = document.getElementById("login");
 
-async function getLoginInfo() {
-    const form = document.getElementById("form-info");
-    const formData = new FormData(form);
-    
+
+async function getLoginInfo() { 
+  const form = document.getElementById("form-info");
+  const formData = new FormData(form);
+  console.log(formData)
+  
   const response = await fetch("/login", {
     method: "POST",
     headers: {
@@ -12,12 +14,15 @@ async function getLoginInfo() {
     body: JSON.stringify(Object.fromEntries(formData)),
   });
 
-    if((response.ok)){
-        console.log("User set")
-        const user = await response.json()
-        sessionStorage.setItem("userId", user.data)
+
+  const data = await response.json();
+  console.log(data.body)
+  if(response.ok) {
+    console.log(data.data)
+    sessionStorage.setItem("userId", data.data);
+    window.location.replace("/");
     } else{
-        console.log()
+        console.log(Error)
         console.log("something went wrong")
     }
 

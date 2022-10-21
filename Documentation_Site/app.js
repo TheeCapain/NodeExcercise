@@ -3,10 +3,12 @@ import express from "express"
 const app = express();
 app.use(express.static("public"));
 
-
+import userRouter from "./public/routers/userRouter.js";
 import articleRouter from "./public/routers/articleRouter.js";
 import { renderPage, injectData } from "./util/templateEngine.js";
+app.use(express.json());
 app.use(articleRouter);
+app.use(userRouter);
 
 
 

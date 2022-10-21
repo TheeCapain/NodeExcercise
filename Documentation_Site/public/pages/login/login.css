@@ -38,7 +38,9 @@ label{
     font-size: 16px;
     font-weight: 500;
 }
-input{
+ input{
+    border-style: solid;
+    border-color: gray;
     display: block;
     height: 50px;
     width: 100%;
