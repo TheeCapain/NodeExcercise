@@ -30,14 +30,14 @@ const articles = [
                 to be simply by defining it. however if for example we choose to write a string + a number. The variable will come out as a string instead of a number as the latter would
                 result in an error. Javascript have dynamic variables meaning you can change the value of a given variable from an int to a string simply by changing its content.
                 In case you use the built in functions such as “Number(x)” on a string it will give you an error NaN meaning not a number. `,
-                subImage: ''
+                img: ''
             },
             {
                 subArticlesId: 2,
                 subTitle: `What is nodeJS?`,
                 text: `nodeJS is an open-source javascript runtime environment that can execute javascript code outside of a web browser. In other words it is a framework for
                 javascript. It allows us to write and run backend applications in a standalone environment. NodeJS is asynchronous which means it does not wait for an API to return data. `,
-                subImage: ''
+                img: ''
             },
             {
                 subArticlesId: 3,
@@ -45,7 +45,7 @@ const articles = [
                 text: `An API meaning application programming interface, is a aset of rules that define how applications or devices can connect and communicate with eachother.
                 When creating a rest API there are certain conventions that are neat to uphold. for example the endpoints should be plural:
                 `,
-                subImage: ''
+                img: ''
             },
         ],
     }, 
@@ -58,16 +58,19 @@ const articles = [
                 subArticlesId: 1,
                 subTitle: `Callback functions`,
                 text: `Placeholder text 1`,
+                img: ''
             },
             {
                 subArticlesId: 2,
                 subTitle: `Sending data with GET requests`,
                 text: `Placeholder text 2`,
+                img: ''
             },
             {
                 subArticlesId: 3,
                 subTitle: `Clean Code and code conventions`,
                 text: `Placeholder text 3`,
+                img: ''
             },
         ],
     },
@@ -80,16 +83,19 @@ const articles = [
                 subArticlesId: 1,
                 subTitle: `SubTitle 1`,
                 text: `Placeholder text 1`,
+                img: ''
             },
             {
                 subArticlesId: 2,
                 subTitle: `SubTitle 2`,
                 text: `Placeholder text 2`,
+                img: ''
             },
             {
                 subArticlesId: 3,
                 subTitle: `SubTitle 3`,
                 text: `Placeholder text 3`,
+                img: ''
             },
         ],
     },
@@ -102,16 +108,19 @@ const articles = [
                 subArticlesId: 1,
                 subTitle: `SubTitle 1`,
                 text: `Placeholder text 1`,
+                img: ''
             },
             {
                 subArticlesId: 2,
                 subTitle: `SubTitle 2`,
                 text: `Placeholder text 2`,
+                img: ''
             },
             {
                 subArticlesId: 3,
                 subTitle: `SubTitle 3`,
                 text: `Placeholder text 3`,
+                img: ''
             },
         ],
     },
@@ -124,16 +133,19 @@ const articles = [
                 subArticlesId: 1,
                 subTitle: `SubTitle 1`,
                 text: `Placeholder text 1`,
+                img: ''
             },
             {
                 subArticlesId: 2,
                 subTitle: `SubTitle 2`,
                 text: `Placeholder text 2`,
+                img: ''
             },
             {
                 subArticlesId: 3,
                 subTitle: `SubTitle 3`,
                 text: `Placeholder text 3`,
+                img: ''
             },
         ],
     },
@@ -146,16 +158,19 @@ const articles = [
                 subArticlesId: 1,
                 subTitle: `SubTitle 1`,
                 text: `Placeholder text 1`,
+                img: ''
             },
             {
                 subArticlesId: 2,
                 subTitle: `SubTitle 2`,
                 text: `Placeholder text 2`,
+                img: ''
             },
             {
                 subArticlesId: 3,
                 subTitle: `SubTitle 3`,
                 text: `Placeholder text 3`,
+                img: ''
             },
         ],
     },{
@@ -167,16 +182,19 @@ const articles = [
                 subArticlesId: 1,
                 subTitle: `SubTitle 1`,
                 text: `Placeholder text 1`,
+                img: ''
             },
             {
                 subArticlesId: 2,
                 subTitle: `SubTitle 2`,
                 text: `Placeholder text 2`,
+                img: ''
             },
             {
                 subArticlesId: 3,
                 subTitle: `SubTitle 3`,
                 text: `Placeholder text 3`,
+                img: ''
             },
         ],
     },

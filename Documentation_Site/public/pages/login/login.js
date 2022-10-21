@@ -1,10 +1,16 @@
 const loginButton = document.getElementById("login");
 
+//Ikke den smarteste, måde skal laves om
+const session = sessionStorage.getItem("userId")
+console.log(session)
+if(session!=null){
+  window.location.replace("/admin");
+}
+
 
 async function getLoginInfo() { 
   const form = document.getElementById("form-info");
   const formData = new FormData(form);
-  console.log(formData)
   
   const response = await fetch("/login", {
     method: "POST",
@@ -16,13 +22,10 @@ async function getLoginInfo() {
 
 
   const data = await response.json();
-  console.log(data.body)
   if(response.ok) {
-    console.log(data.data)
     sessionStorage.setItem("userId", data.data);
     window.location.replace("/");
     } else{
-        console.log(Error)
         console.log("something went wrong")
     }
 

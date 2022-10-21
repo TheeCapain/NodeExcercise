@@ -1,4 +1,6 @@
+const content = document.getElementById("content")
 
+//Kig i U41
 fetch(`/articles`)
 .then(response => response.json())
 .then(articles => {

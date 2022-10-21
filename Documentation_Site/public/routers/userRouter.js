@@ -2,15 +2,7 @@ import {Router} from "express"
 
 const userRouter = Router();
 
-userRouter.get("/user/:id", (req, res) => {
-    const user = users.find((user) => user.userId === Number(req.params.id));
-    res.send({ data: user });
-  });
-
-
 userRouter.post("/login",(req,res) =>{
-    console.log("Vi er herinde")
-    console.log(req.data)
     const user = users.find(
         user => 
         user.userName === req.body.name &&
@@ -18,8 +10,7 @@ userRouter.post("/login",(req,res) =>{
     );
   
     if(user){
-    console.log(user.userId)
-    console.log("virker det?")
+    console.log("Bruger logget ind")
     res.send({data:user.userId})
 } else {
     res.send("Wrong login")
@@ -28,7 +19,7 @@ userRouter.post("/login",(req,res) =>{
 
 const users = [{
     userId:1,
-    userName: "Test",
+    userName: "test",
     userPW: "123"
 }]
 
