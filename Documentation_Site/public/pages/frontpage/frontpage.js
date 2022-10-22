@@ -1,15 +1,35 @@
-const content = document.getElementById("content")
+//addeventlistener kan bruges til at få id til function
+const articleBox = document.getElementById("content-table")
 
-//Kig i U41
-fetch(`/articles`)
-.then(response => response.json())
-.then(articles => {
 
-    articles.data.forEach(article => {
-       let articletitle = document.getElementById("article_title")
-       articletitle.textContent = article.articleTitle
-       let articleText = document.getElementById("article_text")
-       articleText.textContent = article.articleSummary
-       console.log(article.articleSummary)
+async function getArticles() {
+    const response = await fetch(
+        `/articles`
+    );
+    const articles = await response.json();
+
+    console.log(articles.data.articleTitle)
+
+    const title = document.createElement("h1")
+    title.id = articles.data.articleId
+    title.textContent = articles.data.articleTitle
+    
+    articleBox.appendChild(title)
+    
+   
+
+    articles.data.forEach((article) => {
+        console.log(article.articleTitle)
+        let aTag = document.createElement("a")
+        const subtitle = document.createElement("h2")
+        subtitle.id = article.articleId
+        subtitle.textContent = article.articleTitle
+
+        const text = document.createElement("p")
+        text.textContent = article.articleSummary
+        articleBox.appendChild(subtitle)
+        articleBox.appendChild(text)
     });
-});
+}
+
+getArticles()

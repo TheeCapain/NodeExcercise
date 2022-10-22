@@ -18,40 +18,58 @@ const frontpagePage = renderPage("./public/pages/frontpage/frontpage.html",
         cssLink: `<link rel="stylesheet" href="./public/components/navbar/header.css">`
     });
 
-const Uge35 = renderPage("./public/pages/article/Uge_35/U35.html", {
+const Uge35 = renderPage("./public/pages/article/Uge_35/U35.html", 
+{
+    tabTitle: "week 35",
     cssLink: `<link rel="stylesheet" href="/pages/article/Uge_35/U35.css">`
 });
 
-const Uge36 = renderPage("./public/pages/article/Uge_36/U36.html", {
+const Uge36 = renderPage("./public/pages/article/Uge_36/U36.html", 
+{
+    tabTitle: "week 36",
     cssLink: `<link rel="stylesheet" href="/pages/article/Uge_35/U35.css">`
 });
 
-const Uge37 = renderPage("./public/pages/article/Uge_37/U37.html", {
+const Uge37 = renderPage("./public/pages/article/Uge_37/U37.html", 
+{
+    tabTitle: "week 37",
     cssLink: `<link rel="stylesheet" href="/pages/article/Uge_35/U35.css">`
 });
 
-const Uge38 = renderPage("./public/pages/article/Uge_38/U38.html", {
+const Uge38 = renderPage("./public/pages/article/Uge_38/U38.html", 
+{
+    tabTitle: "week 38",
     cssLink: `<link rel="stylesheet" href="/pages/article/Uge_35/U35.css">`
 });
 
-const Uge39 = renderPage("./public/pages/article/Uge_39/U39.html", {
+const Uge39 = renderPage("./public/pages/article/Uge_39/U39.html", 
+{
+    tabTitle: "week 39",
     cssLink: `<link rel="stylesheet" href="/pages/article/Uge_35/U35.css">`
 });
 
-const Uge40 = renderPage("./public/pages/article/Uge_40/U40.html", {
+const Uge40 = renderPage("./public/pages/article/Uge_40/U40.html", 
+{
+    tabTitle: "week 40",
     cssLink: `<link rel="stylesheet" href="/pages/article/Uge_35/U35.css">`
 });
 
-const Uge41 = renderPage("./public/pages/article/Uge_41/U41.html", {
+const Uge41 = renderPage("./public/pages/article/Uge_41/U41.html", 
+{
+    tabTitle: "week 41",
     cssLink: `<link rel="stylesheet" href="/pages/article/Uge_35/U35.css">`
 });
 
-const LoginPage = renderPage("./public/pages/login/login.html", {
+const LoginPage = renderPage("./public/pages/login/login.html", 
+{
+    tabTitle: "login",
     cssLink: `<link rel="stylesheet" href="./public/pages/login/login.css">`
 })
 
-const adminPage = renderPage("./public/pages/admin_page/admin.html", {
-    cssLink: `<link rel="stylesheet" href="./public/pages/login/login.css">`
+const adminPage = renderPage("./public/pages/admin_page/admin.html", 
+{
+    tabTitle: "Admin",
+    cssLink: `<link rel="stylesheet" href="./public/pages/admin_page/admin.css">`
 })
 
 

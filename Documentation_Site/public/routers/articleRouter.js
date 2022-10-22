@@ -19,7 +19,7 @@ articleRouter.get("/articles/:id", (req, res) => {
 const articles = [
     {
         articleId: 1,
-        articleTitle: "Week 35",
+        articleTitle: "Lesson 1",
         articleSummary: 'This week is an introduction to the course NodeJS, where we will refresh git commands and datatypes.Furthermore we will delve into what Node JS is and what it can be used for and have a look at REST API conventions and Package.json',
         subArticles: [
             {
@@ -51,7 +51,7 @@ const articles = [
     }, 
     {
         articleId: 2,
-        articleTitle: "Week 36",
+        articleTitle: "Lesson 2",
         articleSummary: 'Article Summary 2 here',
         subArticles: [
             {
@@ -76,24 +76,24 @@ const articles = [
     },
     {
         articleId: 3,
-        articleTitle: "Week 37",
+        articleTitle: "Lesson 3",
         articleSummary: 'Article Summary 3 here',
         subArticles: [
             {
                 subArticlesId: 1,
-                subTitle: `SubTitle 1`,
+                subTitle: `Arrow functions`,
                 text: `Placeholder text 1`,
                 img: ''
             },
             {
                 subArticlesId: 2,
-                subTitle: `SubTitle 2`,
+                subTitle: `CSS`,
                 text: `Placeholder text 2`,
                 img: ''
             },
             {
                 subArticlesId: 3,
-                subTitle: `SubTitle 3`,
+                subTitle: `Fetch`,
                 text: `Placeholder text 3`,
                 img: ''
             },
@@ -101,24 +101,24 @@ const articles = [
     },
     {
         articleId: 4,
-        articleTitle: "Week 38",
+        articleTitle: "Lesson 4",
         articleSummary: 'Article Summary 4 here',
         subArticles: [
             {
                 subArticlesId: 1,
-                subTitle: `SubTitle 1`,
+                subTitle: `Environment variables`,
                 text: `Placeholder text 1`,
                 img: ''
             },
             {
                 subArticlesId: 2,
-                subTitle: `SubTitle 2`,
+                subTitle: `CRUD`,
                 text: `Placeholder text 2`,
                 img: ''
             },
             {
                 subArticlesId: 3,
-                subTitle: `SubTitle 3`,
+                subTitle: `Redirect`,
                 text: `Placeholder text 3`,
                 img: ''
             },
@@ -126,32 +126,26 @@ const articles = [
     },
     {
         articleId: 5,
-        articleTitle: "Week 39",
+        articleTitle: "Lesson 5",
         articleSummary: 'Article Summary 5 here',
         subArticles: [
             {
                 subArticlesId: 1,
-                subTitle: `SubTitle 1`,
+                subTitle: `Server side rendering`,
                 text: `Placeholder text 1`,
                 img: ''
             },
             {
                 subArticlesId: 2,
-                subTitle: `SubTitle 2`,
+                subTitle: `client side rendering`,
                 text: `Placeholder text 2`,
-                img: ''
-            },
-            {
-                subArticlesId: 3,
-                subTitle: `SubTitle 3`,
-                text: `Placeholder text 3`,
                 img: ''
             },
         ],
     },
     {
         articleId: 6,
-        articleTitle: "Week 40",
+        articleTitle: "Lesson 6",
         articleSummary: 'Article Summary 6 here',
         subArticles: [
             {
@@ -175,7 +169,7 @@ const articles = [
         ],
     },{
         articleId: 7,
-        articleTitle: "Uge 41",
+        articleTitle: "Lesson 7",
         articleSummary: 'Article Summary 7 here',
         subArticles: [
             {
