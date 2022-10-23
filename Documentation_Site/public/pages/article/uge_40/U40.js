@@ -13,7 +13,13 @@ async function getArticles() {
 
     const title = document.createElement("h1")
     title.id = articles.data.articleId
+    
+    const summary = document.createElement("p")
+    summary.textContent = articles.data.articleSummary
+
     articleBox.appendChild(title)
+    articleBox.appendChild(summary)
+    title.textContent = articles.data.articleTitle
     title.textContent = articles.data.articleTitle
 
     articles.data.subArticles.forEach((article) => {
@@ -24,8 +30,11 @@ async function getArticles() {
 
         const text = document.createElement("p")
         text.textContent = article.text
+        const img = document.createElement("img")
+        img.src = article.img
         articleBox.appendChild(subtitle)
         articleBox.appendChild(text)
+        articleBox.appendChild(img)
     });
 }
 

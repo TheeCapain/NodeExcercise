@@ -30,8 +30,12 @@ async function getArticles() {
 
         const text = document.createElement("p")
         text.textContent = article.text
+
+        const img = document.createElement("img")
+        img.src = article.img
         articleBox.appendChild(subtitle)
         articleBox.appendChild(text)
+        articleBox.appendChild(img)
     });
 }
 
