@@ -24,7 +24,7 @@ async function getLoginInfo() {
   const data = await response.json();
   if(response.ok) {
     sessionStorage.setItem("userId", data.data);
-    window.location.replace("/");
+    window.location.replace("/login");
     } else{
         console.log("something went wrong")
     }

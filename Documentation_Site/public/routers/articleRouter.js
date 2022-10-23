@@ -7,7 +7,6 @@ articleRouter.get("/articles", (req, res) => {
 })
 
 articleRouter.get("/articles/:id", (req, res) => {
-    console.log("der b")
     const article = articles.find(
    
         (article) => article.articleId === Number(req.params.id)
