@@ -182,7 +182,7 @@ const articles = [
             {
                 subArticlesId: 2,
                 subTitle: `Express Routers`,
-                text: `Routers can be used to split endpoints into their respective classes as to avoid everything being in a single file.`,
+                text: `Routers can be used to split endpoints into their respective classes as to avoid everything being in a single file. For example everything that has to do with articles in this project has been moved to an article router.`,
                 img: ''
             },
         ],
