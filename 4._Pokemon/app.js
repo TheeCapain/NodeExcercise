@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express';
 const app = express();
 
 app.use(express.urlencoded({ extended: true }));
@@ -13,6 +13,10 @@ import battleResultsRouter from "./routers/battleResultsRouter.js";
 app.use(battleResultsRouter);
 import contactRouter from "./routers/contactRouter.js";
 app.use(contactRouter);
+import nodemailer from "./util/emailHandler.js";
+app.use(nodemailer)
+nodemailer()
+
 
 import { renderPage, injectData } from "./util/templateEngine.js";
 
