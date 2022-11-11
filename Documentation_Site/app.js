@@ -3,29 +3,18 @@ import express from "express"
 const app = express();
 app.use(express.static("public"));
 
-
-import articleRouter from "./public/routers/articleRouter.js";
-app.use(articleRouter);
-
-import { renderPage, injectData } from "./util/templateEngine.js";
+import { renderPage } from "./util/templateEngine.js";
 
 const frontpagePage = renderPage("./public/pages/frontpage/frontpage.html", 
-
-
 { 
     tabTitle: "Welcome",
     cssLink: `<link rel="stylesheet" href="./public/components/navbar/header.css">` 
-});
-
-const articlePage = renderPage("./public/pages/article/article.html", {
-    cssLink: `<link rel="stylesheet" href="/pages/article/article.css">` 
 });
 
 
 app.get("/", (req, res) => {
     res.send(frontpagePage);
 });
-
 
 const PORT = process.env.PORT || 8080;
 
