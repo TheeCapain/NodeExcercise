@@ -1,5 +1,8 @@
 <script>
-	//Implimentering af login forsøg skal laves her
+import {Router} from 'svelte-router-spa'
+import {weatherPage} from './routes.js'
+
+
 </script>
 <main>
 <body>
@@ -25,7 +28,8 @@
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email" placeholder="Email" value="test@mail.com" required>
 					<input type="password" name="pswd" placeholder="Password" value="123" required>
-					<button>Login</button>
+					 <button><a href="/main.svelte">Login</a></button> 
+						
 				</form>
 			</div>
 	</div>
