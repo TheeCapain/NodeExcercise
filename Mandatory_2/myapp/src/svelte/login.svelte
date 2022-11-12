@@ -1,6 +1,5 @@
 <script>
 import {Router} from 'svelte-router-spa'
-import {weatherPage} from './routes.js'
 
 
 </script>

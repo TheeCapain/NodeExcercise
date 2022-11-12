@@ -19,49 +19,80 @@
 </script>
 
 <main>
-  <Grid>
+  <body>
+    <link rel="stylesheet" href="main.css">
+ 
+  <div class="today">  	
+		<div>
+      {#await promise}
+      <p>Loading weather data</p>
+      {:then data } 
+      <p style="color: black"> {data.days[0].datetime}</p>
+      <p style="color: black">max: {data.days[0].tempmax}</p>
+      <p style="color: black">max: {data.days[0].tempmin}</p>
+      <p style="color: v">cur: {data.days[0].temp}</p>
+      <p style="color: v">cur: {data.days[0].description}</p>
+      <p style="color: v">cur: {data.days[0].temp}</p>
+      <p style="color: v">cur: {data.address}</p>
+      <img src="" alt="">
+      {/await}
+		</div>
+	</div>
+
+<div id="forecast">
+  <Grid id ="forecast">
     <Row>
       {#await promise}
         <p>Loading weather data</p>
+        <!--Kan dette laves til et for each loop?-->
       {:then data}
         <Column style="color: white"
           >{data.days[0].datetime}
           <p style="color: white">max: {data.days[0].tempmax}</p>
           <p style="color: white">max: {data.days[0].tempmin}</p>
+          <p style="color: white">cur: {data.days[0].temp}</p>
         </Column>
         <Column style="color: white"
           >{data.days[1].datetime}
           <p style="color: white">max: {data.days[1].tempmax}</p>
           <p style="color: white">max: {data.days[1].tempmin}</p>
+          <p style="color: white">cur: {data.days[1].temp}</p>
         </Column>
         <Column style="color: white"
           >{data.days[2].datetime}
           <p style="color: white">max: {data.days[2].tempmax}</p>
           <p style="color: white">max: {data.days[2].tempmin}</p>
+          <p style="color: white">cur: {data.days[2].temp}</p>
         </Column>
         <Column style="color: white"
           >{data.days[3].datetime}
           <p style="color: white">max: {data.days[3].tempmax}</p>
           <p style="color: white">max: {data.days[3].tempmin}</p>
+          <p style="color: white">cur: {data.days[3].temp}</p>
         </Column>
         <Column style="color: white"
           >{data.days[4].datetime}
           <p style="color: white">max: {data.days[4].tempmax}</p>
           <p style="color: white">max: {data.days[4].tempmin}</p>
+          <p style="color: white">cur: {data.days[4].temp}</p>
         </Column>
         <Column style="color: white"
           >{data.days[5].datetime}
           <p style="color: white">max: {data.days[5].tempmax}</p>
           <p style="color: white">max: {data.days[5].tempmin}</p>
+          <p style="color: white">cur: {data.days[5].temp}</p>
         </Column>
         <Column style="color: white"
           >{data.days[6].datetime}
           <p style="color: white">max: {data.days[6].tempmax}</p>
           <p style="color: white">max: {data.days[6].tempmin}</p>
+          <p style="color: white">cur: {data.days[6].temp}</p>
         </Column>
       {:catch error}
         <p style="color: red">{error.message}</p>
       {/await}
     </Row>
   </Grid>
+</div>
+</body>
 </main>
