@@ -1,7 +1,4 @@
 <script>
-import {Router} from 'svelte-router-spa'
-
-
 </script>
 <main>
 <body>
