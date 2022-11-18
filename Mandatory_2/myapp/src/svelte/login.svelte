@@ -1,4 +1,6 @@
 <script>
+	import { Router, Link, Route } from "svelte-navigator";
+	import Home from "./home.svelte";
 </script>
 <main>
 <body>
@@ -24,7 +26,7 @@
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email" placeholder="Email" value="test@mail.com" required>
 					<input type="password" name="pswd" placeholder="Password" value="123" required>
-					 <button><a href="/main.svelte">Login</a></button> 
+					 <button>Login</button> 
 						
 				</form>
 			</div>

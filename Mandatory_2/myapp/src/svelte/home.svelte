@@ -1,6 +1,7 @@
 <script>
   import { Grid, Row, Column } from "carbon-components-svelte";
   import "carbon-components-svelte/css/white.css";
+  import './home.css'
 
   async function getRandomNumber() {
     const res = await fetch(
@@ -31,8 +32,7 @@
       <p style="color: black">max: {data.days[0].tempmax}</p>
       <p style="color: black">max: {data.days[0].tempmin}</p>
       <p style="color: v">cur: {data.days[0].temp}</p>
-      <p style="color: v">cur: {data.days[0].description}</p>
-      <p style="color: v">cur: {data.days[0].temp}</p>
+      <p style="color: v">Des: {data.days[0].description}</p>
       <p style="color: v">cur: {data.address}</p>
       <img src="" alt="">
       {/await}
@@ -46,12 +46,6 @@
         <p>Loading weather data</p>
         <!--Kan dette laves til et for each loop?-->
       {:then data}
-        <Column style="color: white"
-          >{data.days[0].datetime}
-          <p style="color: white">max: {data.days[0].tempmax}</p>
-          <p style="color: white">max: {data.days[0].tempmin}</p>
-          <p style="color: white">cur: {data.days[0].temp}</p>
-        </Column>
         <Column style="color: white"
           >{data.days[1].datetime}
           <p style="color: white">max: {data.days[1].tempmax}</p>

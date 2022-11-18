@@ -1,6 +1,8 @@
+
+import './svelte/login.css'
+import './svelte/home.css'
 import './svelte/app.css'
-import './svelte/main.css'
-import App from './svelte/main.svelte'
+import App from './svelte/app.svelte'
 
 const app = new App({
   target: document.getElementById('app')
