@@ -1,5 +1,4 @@
 <script>
-	import { Router, Link, Route } from "svelte-navigator";
 	import Home from "./home.svelte";
 </script>
 <main>
@@ -12,12 +11,11 @@
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="signup">
-				<form>
+				<form id="signupForm" action="/signup" method="post">
 					<label for="chk" aria-hidden="true">Sign up</label>
-					<input type="text" name="txt" placeholder="User name" required>
 					<input type="email" name="email" placeholder="Email" required>
 					<input type="password" name="pswd" placeholder="Password" required>
-					<button>Sign up</button>
+					<input id="signupBtn" type="submit" value="Submit">
 				</form>
 			</div>
 
@@ -26,7 +24,7 @@
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email" placeholder="Email" value="test@mail.com" required>
 					<input type="password" name="pswd" placeholder="Password" value="123" required>
-					 <button>Login</button> 
+					 <button><Home/></button> 
 						
 				</form>
 			</div>

@@ -10,12 +10,12 @@ if (isInDeleteMode) {
 
 db.exec(`CREATE TABLE IF NOT EXISTS users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_name VARCHAR(255),
+    user_mail VARCHAR(255),
     user_pw VARCHAR(255)
 );
 `);
 
 // seed the database
 if (isInDeleteMode) {
-    db.run(`INSERT INTO users ( user_name, user_pw) VALUES ("tiger", "panthera tigris");`);
+    db.run(`INSERT INTO users ( user_mail, user_pw) VALUES ("user1", "123");`);
 }

@@ -9,8 +9,9 @@ app.use(express.json());
 import cors from "cors";
 app.use(cors());
 
-import animalsRouter from "./routers/animalsRouter.js";
-app.use(animalsRouter);
+import userRouter from "./routers/userRouter.js";
+app.use(userRouter);
+
 
 const PORT = 8080 || process.env.PORT;
 app.listen(PORT, () => console.log("Server is running on port", PORT));
