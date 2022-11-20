@@ -15,6 +15,10 @@
             },
             body: JSON.stringify(user),
         });
+
+        if(response.ok){
+            console.log("user was found")
+        }
     }
 </script>
 <input type="checkbox" id="chk" aria-hidden="true">

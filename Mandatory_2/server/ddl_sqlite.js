@@ -9,7 +9,7 @@ if (isInDeleteMode) {
 }
 
 db.exec(`CREATE TABLE IF NOT EXISTS users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
     user_mail VARCHAR(255),
     user_pw VARCHAR(255)
 );
@@ -17,5 +17,8 @@ db.exec(`CREATE TABLE IF NOT EXISTS users (
 
 // seed the database
 if (isInDeleteMode) {
-    db.run(`INSERT INTO users ( user_mail, user_pw) VALUES ("user1", "123");`);
+    db.run(`INSERT INTO users
+    ( user_mail, user_pw) 
+    VALUES
+    ("test@mail.com", "123");`);
 }
