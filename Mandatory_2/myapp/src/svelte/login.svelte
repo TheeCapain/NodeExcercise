@@ -1,13 +1,12 @@
 <script>
     import { link } from "svelte-navigator";
 	import Home from "./home.svelte";
-	import Signup from "./signup.svelte"; 
+	
 	
 
 </script>
 <main>
 <body>
-  <link rel="stylesheet" href="app.css">
 	<div class="main">  	
 		<div>
 			<label for="wth" class="site-titel">Weather App</label>

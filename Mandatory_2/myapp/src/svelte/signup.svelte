@@ -3,6 +3,7 @@
     const signupBtn = document.getElementById("signupBtn");
 
     async function userSignup() {
+        console.log("in Signup")
         const signupData = document.getElementById("signupForm");
 
         const formData = new FormData(signupData);

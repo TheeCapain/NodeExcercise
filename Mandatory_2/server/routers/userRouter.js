@@ -20,8 +20,24 @@ if(user){
 } else{
     res.send("Wrong login")
 }
-
-
 })
+
+userRouter.post("/login", async(req,res)=>{
+    const user = user.find(
+        user => 
+        user.email === req.body.email &&
+        user.pswd === req.body.pswd
+    );
+
+if(user){
+console.log("Bruger logget ind")
+result = await db.run((`INSERT INTO users (user_mail, user_pswd) VALUES (?, ?)`, [latinName, commonName]));
+res.send({data:user.userId})
+
+} else{
+res.send("Wrong login")
+}
+})
+
 
 export default userRouter
