@@ -4,19 +4,14 @@ import db from "../database/connection_sqlite.js"
 const userRouter = Router()
 
 userRouter.post("/signup", async (req, res) => {
-    console.log("Vi er i router")
+    console.log(req.body.email)
 
-    if (user) {
-        console.log("Bruger oprettet")
-        result = await db.run((`INSERT INTO users (user_mail, user_pswd) VALUES (?, ?)`, [req.body.email, req.body.pswd]));
-        res.send({ data: user.userId })
+    await db.run(`INSERT INTO users (user_mail, user_pw) VALUES (?, ?)`, [req.body.email, req.body.pswd])
 
-    } else {
-        res.send("Wrong login")
-    }
+
 })
 
-userRouter.get("/api/users", async(req,res)=>{
+userRouter.get("/api/users", async (req, res) => {
     const data = await db.all("SELECT * FROM users;");
     res.send({ data });
 })

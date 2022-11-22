@@ -1,7 +1,7 @@
 <script>
   import { BASE_URL, global_user } from "../../store/global";
 
-    async function userLogin() {
+    async function userSignup() {
         console.log("We made it to javascript")
         const user = {
             email: document.getElementById("email").value,
@@ -21,9 +21,6 @@
         }
     }
 
-
-
-
 </script>
 
 <input type="checkbox" id="chk" aria-hidden="true">
@@ -32,7 +29,7 @@
 						<label for="chk" aria-hidden="true">Sign up</label>
 						<input id="email" type="email" name="email" placeholder="Email" >
 						<input id="pswd" type="password" name="pswd" placeholder="Password">
-						<button>Sign up</button>
+						<button type="submit" on:click={userSignup}>Sign up</button>
 					</form>
 				</div>
 
