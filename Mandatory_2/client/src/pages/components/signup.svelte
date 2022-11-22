@@ -1,12 +1,37 @@
 <script>
+  import { BASE_URL, global_user } from "../../store/global";
+
+    async function userLogin() {
+        console.log("We made it to javascript")
+        const user = {
+            email: document.getElementById("email").value,
+            pswd: document.getElementById("pswd").value,
+        };
+
+        let response = await fetch(`${$BASE_URL}/signup`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json;charset=utf-8",
+            },
+            body: JSON.stringify(user),
+        });
+
+		if (response.ok) {
+			console.log("All is good")
+        }
+    }
+
+
+
+
 </script>
 
 <input type="checkbox" id="chk" aria-hidden="true">
 				<div class="signup">
 					<form>
 						<label for="chk" aria-hidden="true">Sign up</label>
-						<input type="email" name="email" placeholder="Email" >
-						<input type="password" name="pswd" placeholder="Password">
+						<input id="email" type="email" name="email" placeholder="Email" >
+						<input id="pswd" type="password" name="pswd" placeholder="Password">
 						<button>Sign up</button>
 					</form>
 				</div>

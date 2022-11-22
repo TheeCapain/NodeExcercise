@@ -1,11 +1,11 @@
 <script>
-    import { BASE_URL } from "../../store/global";
+    import { BASE_URL, global_user } from "../../store/global";
 
     async function userLogin() {
         console.log("We made it to javascript")
         const user = {
-            email: document.getElementById("email"),
-            pswd: document.getElementById("pswd"),
+            email: document.getElementById("signup_email").value,
+            pswd: document.getElementById("signup_pswd").value,
         };
 
         let response = await fetch(`${$BASE_URL}/login`, {
@@ -16,8 +16,11 @@
             body: JSON.stringify(user),
         });
 
-        if(response.ok){
-            console.log("user was found")
+		if (response.ok) {
+			console.log("All is good")
+            const access = 1;
+            const email = user.email;
+            sessionStorage.setItem(user.email, String(access))
         }
     }
 </script>
@@ -26,8 +29,8 @@
 				<div class="login">
 					<form>
 						<label for="chk" aria-hidden="true">Login</label>
-						<input type="email" name="email" placeholder="Email" value="test@mail.com">
-						<input type="password" name="pswd" placeholder="Password" value="123">
+						<input id="signup_email" type="email" name="email" placeholder="Email" value="test@mail.com">
+						<input id="signup_pswd" type="password" name="pswd" placeholder="Password" value="123">
 						<button type="submit" on:click={userLogin}>Login</button>
                         <button>Forgot Password?</button>
 					</form>
