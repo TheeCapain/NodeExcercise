@@ -1,10 +1,27 @@
 import { Router } from 'express'
 import db from "../database/connection_sqlite.js"
+import bcrypt from 'bcrypt'
 
 const userRouter = Router()
+const saltRounds = 10;
+const myPlaintextPassword = 's0/\/\P4$$w0rD';
+const someOtherPlaintextPassword = 'not_bacon';
+
+const salt = bcrypt.genSaltSync(saltRounds);
+const hash = bcrypt.hashSync(myPlaintextPassword, salt);
+
+//https://www.npmjs.com/package/bcrypt
+
+
 
 userRouter.post("/signup", async (req, res) => {
     console.log(req.body.email)
+
+    bcrypt.genSalt(saltRounds, function(err, salt) {
+        bcrypt.hash(pw, salt(function(err, hash){
+            
+        }))
+    })
 
     await db.run(`INSERT INTO users (user_mail, user_pw) VALUES (?, ?)`, [req.body.email, req.body.pswd])
 
