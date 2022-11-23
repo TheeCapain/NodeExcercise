@@ -1,7 +1,7 @@
 <script>
-	import { link } from "svelte-navigator";
-	import Signup from "../components/signup.svelte";
-	import Login from "../components/login.svelte";
+	import '../components/userInteraction/login.css'
+	import Signup from "../components/userInteraction/signup.svelte";
+	import Login from "../components/userInteraction/login.svelte";
 </script>
 
 <main>

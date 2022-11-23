@@ -1,14 +1,15 @@
 <script>
-  import { BASE_URL, global_user } from "../../store/global";
+    import { BASE_URL } from "../../../store/global";
+	import {Link} from "svelte-navigator";
 
-    async function userSignup() {
+    async function userLogin() {
         console.log("We made it to javascript")
         const user = {
-            email: document.getElementById("email").value,
-            pswd: document.getElementById("pswd").value,
+            email: document.getElementById("signup_email").value,
+            pswd: document.getElementById("signup_pswd").value,
         };
 
-        let response = await fetch(`${$BASE_URL}/signup`, {
+        let response = await fetch(`${$BASE_URL}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json;charset=utf-8",
@@ -18,31 +19,25 @@
 
 		if (response.ok) {
 			console.log("All is good")
+            const session = 1;
+            sessionStorage.setItem(user.email, String(session))
         }
     }
-
 </script>
-
 <input type="checkbox" id="chk" aria-hidden="true">
-				<div class="signup">
-					<form>
-						<label for="chk" aria-hidden="true">Sign up</label>
-						<input id="email" type="email" name="email" placeholder="Email" >
-						<input id="pswd" type="password" name="pswd" placeholder="Password">
-						<button type="submit" on:click={userSignup}>Sign up</button>
+	
+				<div class="login">
+					<form method="POST">
+						<label for="chk" aria-hidden="true">Login</label>
+						<input id="signup_email" type="email" name="email" placeholder="Email">
+						<input id="signup_pswd" type="password" name="pswd" placeholder="Password">
+						<button type="submit" on:click={userLogin}> <Link to="/" style="textdecoration: none">Login</Link></button>
+                        <button>Forgot Password?</button>
 					</form>
 				</div>
 
 <style>
-
-#chk{
-	display: none;
-}
-.signup{
-	position: relative;
-	width:100%;
-	height: 100%;
-}
+	
 label{
 	color: #fff;
 	font-size: 2.3em;
@@ -85,8 +80,15 @@ button{
 button:hover{
 	background: #6d44b8;
 }
-
-#chk:checked ~ .signup label{
+.login{
+	height: 460px;
+	background: #eee;
+	border-radius: 60% / 10%;
+	transform: translateY(-180px);
+	transition: .8s ease-in-out;
+}
+.login label{
+	color: #573b8a;
 	transform: scale(.6);
 }
 </style>
