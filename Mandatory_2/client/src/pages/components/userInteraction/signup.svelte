@@ -1,10 +1,38 @@
 <script>
 	import { BASE_URL, global_user } from "../../../store/global";
 
+	function sendData(){
+		userSignup()
+		sendMail()
+
+	}
+
+	async function sendMail() {
+		console.log("We made it to javascript");
+		const user = {
+			// @ts-ignore
+			email: document.getElementById("email").value,
+		};
+
+		let response = await fetch(`${$BASE_URL}/api/welcome`, {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json;charset=utf-8",
+			},
+			body: JSON.stringify(user),
+		});
+
+		if (response.ok) {
+			console.log("All is good");
+		}
+	}
+
 	async function userSignup() {
 		console.log("We made it to javascript");
 		const user = {
+			// @ts-ignore
 			email: document.getElementById("email").value,
+			// @ts-ignore
 			pswd: document.getElementById("pswd").value,
 		};
 
@@ -28,7 +56,7 @@
 		<label for="chk" aria-hidden="true">Sign up</label>
 		<input id="email" type="email" name="email" placeholder="Email" />
 		<input id="pswd" type="password" name="pswd" placeholder="Password" />
-		<button type="submit" on:click={userSignup}>Sign up</button>
+		<button type="submit" on:click={sendData}>Sign up</button>
 	</form>
 </div>
 
