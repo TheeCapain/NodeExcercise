@@ -2,10 +2,14 @@
     import { BASE_URL } from "../../../store/global";
 	import {Link} from "svelte-navigator";
 
+	let errorMessage;
+
     async function userLogin() {
         console.log("We made it to javascript")
         const user = {
+            // @ts-ignore
             email: document.getElementById("signup_email").value,
+            // @ts-ignore
             pswd: document.getElementById("signup_pswd").value,
         };
 
@@ -21,6 +25,7 @@
 			console.log("All is good")
             const session = 1;
             sessionStorage.setItem(user.email, String(session))
+			
         } else{
 			console.log("something went wrong")
 		}

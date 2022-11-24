@@ -9,6 +9,10 @@ app.use(express.json());
 import cors from "cors";
 app.use(cors());
 
+import mailHandler from "./routers/mailHandler.js"
+app.use(mailHandler)
+
+mailHandler()
 import userRouter from "./routers/userRouter.js";
 app.use(userRouter);
 

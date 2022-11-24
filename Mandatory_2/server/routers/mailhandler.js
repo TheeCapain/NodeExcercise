@@ -1,7 +1,3 @@
-"use strict";
-const nodemailer = require("nodemailer");
-
-
 async function main() {
 
   let testAccount = await nodemailer.createTestAccount();
@@ -19,7 +15,7 @@ async function main() {
 
   let info = await transporter.sendMail({
     from: '"Fred Foo 👻" <foo@example.com>', 
-    to: "bar@example.com, baz@example.com", 
+    to: "violet63@ethereal.email", 
     subject: "Hello ✔",
     text: "Hello world?",
     html: "<b>Hello world?</b>",
@@ -33,4 +29,4 @@ async function main() {
   // Preview URL: https://ethereal.email/message/WaQKMgKddxQDoou...
 }
 
-main().catch(console.error);
+export default main()
