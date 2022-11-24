@@ -6,7 +6,6 @@
       `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/Copenhagen?unitGroup=metric&key=AK8K8TCEDGVRRJ46XE5UE4W5N&contentType=json`
     );
     const data = await res.json();
-    console.log(data);
     if (res.ok) {
       return data;
     } else {

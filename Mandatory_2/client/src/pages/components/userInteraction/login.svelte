@@ -21,7 +21,9 @@
 			console.log("All is good")
             const session = 1;
             sessionStorage.setItem(user.email, String(session))
-        }
+        } else{
+			console.log("something went wrong")
+		}
     }
 </script>
 <input type="checkbox" id="chk" aria-hidden="true">
@@ -31,7 +33,7 @@
 						<label for="chk" aria-hidden="true">Login</label>
 						<input id="signup_email" type="email" name="email" placeholder="Email">
 						<input id="signup_pswd" type="password" name="pswd" placeholder="Password">
-						<button type="submit" on:click={userLogin}> <Link to="/" style="textdecoration: none">Login</Link></button>
+						<button type="submit" on:click={userLogin}> Login</button>
                         <button>Forgot Password?</button>
 					</form>
 				</div>

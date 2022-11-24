@@ -15,7 +15,6 @@ db.exec(`CREATE TABLE IF NOT EXISTS users (
 );
 `);
 
-// seed the database
 if (isInDeleteMode) {
     db.run(`INSERT INTO users
     ( user_mail, user_pw) 
