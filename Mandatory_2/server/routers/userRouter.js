@@ -7,8 +7,6 @@ const saltRounds = 10;
 
 const salt = bcrypt.genSaltSync(saltRounds);
 
-//https://www.npmjs.com/package/bcrypt
-
 function hashPW(pw){
     const hashedPW = bcrypt.hashSync(pw, salt);
     return hashedPW
@@ -21,8 +19,6 @@ userRouter.post("/signup", async (req, res) => {
 
     console.log(hashedPw)
     await db.run(`INSERT INTO users (user_mail, user_pw) VALUES (?, ?)`, [req.body.email, hashedPw])
-
-
 })
 
 userRouter.get("/api/users", async (req, res) => {

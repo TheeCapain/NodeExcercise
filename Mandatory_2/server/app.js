@@ -1,20 +1,16 @@
 import express from "express";
 const app = express();
 
-// import path from "path";
-// app.use(express.static(path.resolve("../client/dist")));
-
 app.use(express.json());
 
 import cors from "cors";
 app.use(cors());
 
-import mailHandler from "./routers/mailHandler.js"
-app.use(mailHandler)
-
-mailHandler()
 import userRouter from "./routers/userRouter.js";
 app.use(userRouter);
+
+import mailRouter from "./routers/mailRouter.js"
+app.use(mailRouter)
 
 
 const PORT = 8080 || process.env.PORT;
