@@ -7,12 +7,12 @@ const saltRounds = 10;
 
 const salt = bcrypt.genSaltSync(saltRounds);
 
-function hashPW(pw){
+function hashPW(pw) {
     const hashedPW = bcrypt.hashSync(pw, salt);
     return hashedPW
 }
 
-userRouter.post("/signup", async (req, res) => {
+userRouter.post("api/users/signup", async (req, res) => {
     console.log(req.body.email)
 
     const hashedPw = hashPW(req.body.pswd)
@@ -26,22 +26,15 @@ userRouter.get("/api/users", async (req, res) => {
     res.send({ data });
 })
 
-userRouter.post("/login", async (req, res, next) => {
+userRouter.post("api/users/login", async (req, res, next) => {
     const hashedPw = hashPW(req.body.pswd)
 
     const user = await db.get("SELECT * FROM users WHERE user_mail=? AND user_pw=?", [req.body.email, hashedPw])
-    console.log(user.pw)
-    console.log(hashedPw)
-
     console.log("user logged in")
     if (user) {
-        res.status(200).send({ message: `You are already logged in as ${req.body.email}` });
+        res.status(200).send({ message: `You are now logged in ${req.body.email}` });
     } else {
-        if (user) {
-            next();
-        } else {
-            res.status(400).send({ message: "Wrong email or password" });
-        }
+        res.status(400).send({ message: "Wrong email or password" });
     }
 })
 
