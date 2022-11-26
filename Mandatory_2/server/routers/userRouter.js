@@ -1,6 +1,7 @@
 import { Router } from 'express'
 import db from "../database/connection_sqlite.js"
 import bcrypt, { hash } from 'bcrypt'
+import { nextTick } from 'process';
 
 const userRouter = Router()
 const saltRounds = 10;
@@ -29,7 +30,8 @@ userRouter.get("/api/users", async (req, res) => {
 
 //https://www.section.io/engineering-education/session-management-in-nodejs-using-expressjs-and-express-session/ sessions in backend
 
-userRouter.post("/api/users/login", async (req, res) => {
+userRouter.post("/api/users/login", async (req, res, next) => {
+
     console.log(req.body.password)
     console.log(req.body.email)
 
@@ -40,12 +42,11 @@ userRouter.post("/api/users/login", async (req, res) => {
     console.log(user.user_pw)
     console.log(hashedPw)
     if (user) {
-
-        console.log("User logged in")
-        req.session = user.email
         console.log("session is set");
+        next(user);
 
     } else {
+        console.log("test")
         res.status(400).send({ message: "Wrong email or password" });
     }
 

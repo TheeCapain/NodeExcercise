@@ -1,11 +1,7 @@
 <script>
-	import { BASE_URL, global_user } from "../../../store/global";
+	import { BASE_URL } from "../../../store/global";
 	import Notification from "../general/notification.svelte";
-	import { useForm, validators, email, required } from "svelte-use-form";
-	import { useNavigate, useLocation, Link } from "svelte-navigator";
-
-	const navigate = useNavigate();
-	const location = useLocation();
+	import { useForm } from "svelte-use-form";
 
 	const form = useForm();
 
@@ -18,7 +14,8 @@
 			// @ts-ignore
 			password: document.getElementById("login_password").value,
 		};
-
+		const access = 1;
+		sessionStorage.setItem(user.email, String(access));
 		let response = await fetch(`${$BASE_URL}/api/users/login`, {
 			method: "POST",
 			headers: {
@@ -26,30 +23,30 @@
 			},
 			body: JSON.stringify(user),
 		});
-
+		alert("here");
 		// checks if the server response with a ok and then sets a global user
-		if (response.ok) {
-			const access = 1;
-			const email = user.email;
-			$global_user = { email, access };
-			sessionStorage.setItem($global_user)
-
-			const from = ($location.state && $location.state.from) || "/";
-			navigate(from, { replace: true });
-
-			// @ts-ignore
-			toastr.success("Loggedin", "You are now loggedin");
-		}
 	}
 </script>
 
 <input type="checkbox" id="chk" aria-hidden="true" />
 
 <div class="login">
-	<form use:form>
+	<form>
 		<label for="chk" aria-hidden="true">Login</label>
-		<input type="email" placeholder="Enter Email" id="login_email" name="email" required/>
-		<input type="password" placeholder="Enter Password" id="login_password" name="password" required/>
+		<input
+			type="email"
+			placeholder="Enter Email"
+			id="login_email"
+			name="email"
+			required
+		/>
+		<input
+			type="password"
+			placeholder="Enter Password"
+			id="login_password"
+			name="password"
+			required
+		/>
 		<button type="submit" on:click={userLogin}> Login</button>
 		<Notification {userNotification} />
 		<button>Forgot Password?</button>
