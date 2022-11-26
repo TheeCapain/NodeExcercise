@@ -22,8 +22,8 @@ async function handleEmail(){
         let info = await transporter.sendMail({
             from: '"Pinkie Moen" <pinkie15@ethereal.email>',
             to: "rhoda52@ethereal.email",
-            subject: "Hello ✔",
-            text: "Jeg kunne godt bruge en Croissant",
+            subject: "Welcome to the Weather",
+            text: "You are now signed up to view the weather... didnt think youd have to",
             html: "<b>Hello world?</b>",
           });
     

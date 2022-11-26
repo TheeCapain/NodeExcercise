@@ -2,6 +2,9 @@
 	import '../components/userInteraction/login.css'
 	import Signup from "../components/userInteraction/signup.svelte";
 	import Login from "../components/userInteraction/login.svelte";
+	import { Link, navigate } from 'svelte-routing';
+	import { token } from "./../../store";
+
 </script>
 
 <main>

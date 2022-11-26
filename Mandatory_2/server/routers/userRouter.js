@@ -12,7 +12,7 @@ function hashPW(pw) {
     return hashedPW
 }
 
-userRouter.post("api/users/signup", async (req, res) => {
+userRouter.post("/api/users/signup", async (req, res) => {
     console.log(req.body.email)
 
     const hashedPw = hashPW(req.body.pswd)
@@ -26,16 +26,34 @@ userRouter.get("/api/users", async (req, res) => {
     res.send({ data });
 })
 
-userRouter.post("api/users/login", async (req, res, next) => {
-    const hashedPw = hashPW(req.body.pswd)
 
-    const user = await db.get("SELECT * FROM users WHERE user_mail=? AND user_pw=?", [req.body.email, hashedPw])
-    console.log("user logged in")
+//https://www.section.io/engineering-education/session-management-in-nodejs-using-expressjs-and-express-session/ sessions in backend
+
+userRouter.post("/api/users/login", async (req, res) => {
+    console.log(req.body.password)
+    console.log(req.body.email)
+
+    const hashedPw = hashPW(req.body.password)
+
+    const user = await db.get("SELECT * FROM users WHERE user_mail=?", [req.body.email])
+    console.log(user)
+    console.log(user.user_pw)
+    console.log(hashedPw)
     if (user) {
-        res.status(200).send({ message: `You are now logged in ${req.body.email}` });
+
+        console.log("User logged in")
+        req.session = user.email
+        console.log("session is set");
+
     } else {
         res.status(400).send({ message: "Wrong email or password" });
     }
+
+});
+
+
+userRouter.get("/api/users/logout", (req, res) => {
+    delete req.session.isLoggedIn
 })
 
 

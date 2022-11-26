@@ -1,10 +1,10 @@
 <script>
 	import { BASE_URL, global_user } from "../../../store/global";
 
-	function sendData(){
-		userSignup()
-		sendMail()
 
+	function sendData() {
+		userSignup();
+		sendMail();
 	}
 
 	async function sendMail() {
@@ -24,6 +24,7 @@
 
 		if (response.ok) {
 			console.log("All is good");
+		
 		}
 	}
 
@@ -36,7 +37,7 @@
 			pswd: document.getElementById("pswd").value,
 		};
 
-		let response = await fetch(`${$BASE_URL}/signup`, {
+		let response = await fetch(`${$BASE_URL}/api/users/signup`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json;charset=utf-8",

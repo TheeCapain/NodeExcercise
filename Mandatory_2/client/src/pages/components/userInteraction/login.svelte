@@ -1,20 +1,25 @@
 <script>
-	import { BASE_URL } from "../../../store/global";
+	import { BASE_URL, global_user } from "../../../store/global";
 	import Notification from "../general/notification.svelte";
-	import { Link } from "svelte-navigator";
+	import { useForm, validators, email, required } from "svelte-use-form";
+	import { useNavigate, useLocation, Link } from "svelte-navigator";
+
+	const navigate = useNavigate();
+	const location = useLocation();
+
+	const form = useForm();
 
 	let userNotification = "";
 
 	async function userLogin() {
-		console.log("We made it to javascript");
 		const user = {
 			// @ts-ignore
-			email: document.getElementById("signup_email").value,
+			email: document.getElementById("login_email").value,
 			// @ts-ignore
-			pswd: document.getElementById("signup_pswd").value,
+			password: document.getElementById("login_password").value,
 		};
 
-		let response = await fetch(`${$BASE_URL}/login`, {
+		let response = await fetch(`${$BASE_URL}/api/users/login`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json;charset=utf-8",
@@ -22,13 +27,18 @@
 			body: JSON.stringify(user),
 		});
 
-		const data = await response.json();
-
+		// checks if the server response with a ok and then sets a global user
 		if (response.ok) {
-			document.cookie = `token=${data}`;
-			window.location.replace("/");
-		} else {
-			userNotification = "Something went wrong";
+			const access = 1;
+			const email = user.email;
+			$global_user = { email, access };
+			sessionStorage.setItem($global_user)
+
+			const from = ($location.state && $location.state.from) || "/";
+			navigate(from, { replace: true });
+
+			// @ts-ignore
+			toastr.success("Loggedin", "You are now loggedin");
 		}
 	}
 </script>
@@ -36,20 +46,10 @@
 <input type="checkbox" id="chk" aria-hidden="true" />
 
 <div class="login">
-	<form method="POST">
+	<form use:form>
 		<label for="chk" aria-hidden="true">Login</label>
-		<input
-			id="signup_email"
-			type="email"
-			name="email"
-			placeholder="Email"
-		/>
-		<input
-			id="signup_pswd"
-			type="password"
-			name="pswd"
-			placeholder="Password"
-		/>
+		<input type="email" placeholder="Enter Email" id="login_email" name="email" required/>
+		<input type="password" placeholder="Enter Password" id="login_password" name="password" required/>
 		<button type="submit" on:click={userLogin}> Login</button>
 		<Notification {userNotification} />
 		<button>Forgot Password?</button>
