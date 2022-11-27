@@ -16,9 +16,6 @@
 
 	async function userLogin() {
 		const access = 1;
-	
-		let mail = "";
-		let password = "";
 
 		const user = {
 			// @ts-ignore
@@ -26,6 +23,8 @@
 			// @ts-ignore
 			password: document.getElementById("login_password").value,
 		};
+
+		sessionStorage.setItem(user.email, String(access))
 	
 		let response = await fetch(`${$BASE_URL}/api/users/login`, {
 			method: "POST",
@@ -35,9 +34,6 @@
 			body: JSON.stringify(user),
 		});
 		if (response.ok) {
-			window.location.replace("/home");
-			mail = "";
-			password = "";
 		} else {
 			userNotification = "Wrong login credentials";
 		}
@@ -63,7 +59,7 @@
 			name="password"
 			required
 		/>
-		<button on:click={redirectLogin}> Login</button>
+		<button type="submit" on:click={redirectLogin}> Login</button>
 		<Notification {userNotification} />
 		<button>Forgot Password?</button>
 	</form>
