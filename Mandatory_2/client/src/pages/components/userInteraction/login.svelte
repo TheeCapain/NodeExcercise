@@ -2,20 +2,31 @@
 	import { BASE_URL } from "../../../store/global";
 	import Notification from "../general/notification.svelte";
 	import { useForm } from "svelte-use-form";
+	import { useNavigate, useLocation, Link } from "svelte-navigator";
+	import { token } from "../../../store/global";
 
 	const form = useForm();
 
 	let userNotification = "";
 
+	function redirectLogin(){
+		userLogin()
+		window.location.replace("/home");
+	}
+
 	async function userLogin() {
+		const access = 1;
+	
+		let mail = "";
+		let password = "";
+
 		const user = {
 			// @ts-ignore
 			email: document.getElementById("login_email").value,
 			// @ts-ignore
 			password: document.getElementById("login_password").value,
 		};
-		const access = 1;
-		sessionStorage.setItem(user.email, String(access));
+	
 		let response = await fetch(`${$BASE_URL}/api/users/login`, {
 			method: "POST",
 			headers: {
@@ -23,8 +34,13 @@
 			},
 			body: JSON.stringify(user),
 		});
-		alert("here");
-		// checks if the server response with a ok and then sets a global user
+		if (response.ok) {
+			window.location.replace("/home");
+			mail = "";
+			password = "";
+		} else {
+			userNotification = "Wrong login credentials";
+		}
 	}
 </script>
 
@@ -47,7 +63,7 @@
 			name="password"
 			required
 		/>
-		<button type="submit" on:click={userLogin}> Login</button>
+		<button on:click={redirectLogin}> Login</button>
 		<Notification {userNotification} />
 		<button>Forgot Password?</button>
 	</form>

@@ -1,5 +1,5 @@
 <script>
-    import { Grid, Row, Column } from "carbon-components-svelte";
+  import { Grid, Row, Column } from "carbon-components-svelte";
   import "carbon-components-svelte/css/white.css";
 
   async function getWeather() {
@@ -17,8 +17,9 @@
 
   let promise = getWeather();
 </script>
+
 <body>
-    <div id="forecast">
+  <div id="forecast">
     <Grid>
       <Row>
         {#await promise}
@@ -62,18 +63,17 @@
             <p style="color: white">cur: {data.days[6].temp}</p>
           </Column>
           <Column style="color: white"
-          >{data.days[6].datetime}
-          <p style="color: white">max: {data.days[6].tempmax}</p>
-          <p style="color: white">max: {data.days[6].tempmin}</p>
-          <p style="color: white">cur: {data.days[6].temp}</p>
-        </Column>
+            >{data.days[6].datetime}
+            <p style="color: white">max: {data.days[6].tempmax}</p>
+            <p style="color: white">max: {data.days[6].tempmin}</p>
+            <p style="color: white">cur: {data.days[6].temp}</p>
+          </Column>
         {:catch error}
           <p style="color: red">{error.message}</p>
         {/await}
       </Row>
     </Grid>
   </div>
-  
 </body>
 
 <style>
@@ -82,5 +82,4 @@
     margin: auto;
     width: 80%;
   }
-  </style>
-  
+</style>
